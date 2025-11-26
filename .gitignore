@@ -1,0 +1,6 @@
+compile
+lex.yy.compile
+sintatico.tab.c
+sintatico.tab.h
+lex.yy.c
+
