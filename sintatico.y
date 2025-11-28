@@ -5,15 +5,19 @@
     
 %}
 
-%token NUMBER
+%token NUMBER HEXNUMBER
 %token ADD SUB MUL DIV ABS
 %token OP CP
 %token EOL
+%token CMT
 
 %%
 
+
+
 calclist: 
     | calclist exp EOL {printf ("= %d\n", $2);}
+
     ;
 
 exp: factor
@@ -26,6 +30,7 @@ factor: term
     ;
 
 term: NUMBER
+    | HEXNUMBER
     | ABS term { $$ = $2 >= 0? $2 : - $2;}
     | OP exp CP { $$ = $2;}
     ;
